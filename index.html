@@ -50,25 +50,24 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.5);
             border-radius: 25px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            padding: 10px;
+            padding: 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
+            visibility: hidden;
         }
         .menu-dot {
-            width: 15px;
-            height: 15px;
-            background-color: #ccc;
+            width: 7.5px;
+            height: 7.5px;
+            background-color: transparent;
             border-radius: 50%;
-            border: 2px solid #888;
             cursor: pointer;
         }
         .menu-dot.active {
-            background-color: #888;
+            background-color: #ffffff;
         }
     </style>
 </head>
@@ -103,7 +102,7 @@
     </div>
     
     <!-- Floating Menu -->
-    <div class="floating-menu">
+    <div class="floating-menu" id="floatingMenu">
         <div class="menu-dot" onclick="scrollToSection('landing')"></div>
         <div class="menu-dot" onclick="scrollToSection('about-us')"></div>
         <div class="menu-dot" onclick="scrollToSection('what-we-do')"></div>
@@ -132,6 +131,8 @@
         window.addEventListener('scroll', () => {
             const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
             const dots = document.querySelectorAll('.menu-dot');
+            const floatingMenu = document.getElementById('floatingMenu');
+
             sections.forEach((section, index) => {
                 const element = document.getElementById(section);
                 const rect = element.getBoundingClientRect();
@@ -140,6 +141,14 @@
                     dots[index].classList.add('active');
                 }
             });
+
+            // Hide floating menu when on landing page
+            const landingRect = document.getElementById('landing').getBoundingClientRect();
+            if (landingRect.top >= 0 && landingRect.bottom <= window.innerHeight) {
+                floatingMenu.style.visibility = 'hidden';
+            } else {
+                floatingMenu.style.visibility = 'visible';
+            }
         });
     </script>
 </body>
