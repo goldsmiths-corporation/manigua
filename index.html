@@ -21,14 +21,18 @@
             background: url('landing.jpg') no-repeat center center;
             background-size: cover;
         }
-        #landing::after {
-            content: "";
+        #landing .background-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #landing img, #landing .arrow {
+            position: relative;
+            z-index: 2;
         }
         #about-us {
             background: #F5F5F5 url('about.jpg') no-repeat center center;
@@ -98,7 +102,8 @@
 </head>
 <body>
     <div id="landing" class="frame">
-        <img src="logo.svg" alt="Logo" style="filter: invert(100%); position: relative;">
+        <div class="background-overlay"></div>
+        <img src="logo.svg" alt="Logo" style="filter: invert(100%);">
         <div class="arrow" onclick="scrollToSection('about-us')">↓</div>
     </div>
     <div id="about-us" class="frame">
