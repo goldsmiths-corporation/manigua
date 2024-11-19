@@ -84,9 +84,8 @@
         .menu-dot.active {
             background-color: #ffffff;
         }
-            .learn-more-button {
+        .button {
             position: absolute;
-            bottom: 20px;
             cursor: pointer;
             font-size: 1.5rem;
             background-color: rgba(255, 255, 255, 0.5);
@@ -101,28 +100,28 @@
 <body>
     <div id="landing" class="frame">
         <img src="logo.svg" alt="Logo" style="filter: invert(100%);">
-        <div class="learn-more-button" onclick="scrollToSection('about-us')">Learn More</div>
+        <div class="button" onclick="scrollToSection('about-us')">Learn More</div>
     </div>
     <div id="about-us" class="frame">
-        <div class="learn-more-button" onclick="scrollToSection('what-we-do')">Learn More</div>
         <div class="content">
             <h1>About Us</h1>
             <p>Welcome to Manigua! We are a dedicated team passionate about creating effective solutions that make a difference.</p>
         </div>
+       <div class="arrow" onclick="scrollToSection('what-we-do')">&#x2193;</div>
     </div>
     <div id="what-we-do" class="frame">
-        <div class="learn-more-button" onclick="scrollToSection('how-we-do-it')">Learn More</div>
         <div class="content">
             <h1>What We Do</h1>
             <p>We focus on providing innovative services that solve complex challenges, tailored to meet the needs of our clients.</p>
         </div>
+        <div class="arrow" onclick="scrollToSection('how-we-do-it')">&#x2193;</div>
     </div>
     <div id="how-we-do-it" class="frame">
-        <div class="learn-more-button" onclick="scrollToSection('contact')">Learn More</div>
         <div class="content">
             <h1>How We Do It</h1>
             <p>Our approach combines creativity, technology, and experience to deliver results that truly impact our community and clients.</p>
         </div>
+        <div class="arrow" onclick="scrollToSection('contact')">&#x2193;</div>
     </div>
     <div id="contact" class="frame">
         <div class="learn-more-button" onclick="scrollToSection('landing')">Back to Top</div>
@@ -131,6 +130,7 @@
             <p>Get in touch with us for more information or to start a project together!</p>
             <p>Email: <a href="mailto:contact@manigua.co">contact@manigua.co</a></p>
         </div>
+         <div class="button" onclick="scrollToSection('landing')">Back to Top</div>
     </div>
     
     <!-- Floating Menu -->
