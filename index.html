@@ -153,10 +153,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            scrollToSection('landing'); // Scroll to the landing page frame on page load
-            setTimeout(updateActiveDot, 500); // Delay to ensure correct section highlighting
+            updateActiveDot();
         });
-       
+
+        window.addEventListener('scroll', () => {
+            updateActiveDot();
+        });
 
         function updateActiveDot() {
             const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
@@ -169,18 +171,6 @@
                     dots[index].classList.add('active');
                 }
             });
-        }
-
-        function getCurrentSectionIndex() {
-            const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
-            for (let i = 0; i < sections.length; i++) {
-                const element = document.getElementById(sections[i]);
-                const rect = element.getBoundingClientRect();
-                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                    return i;
-                }
-            }
-            return 0;
         }
     </script>
 </body>
