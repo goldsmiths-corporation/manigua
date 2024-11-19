@@ -16,7 +16,11 @@
             align-items: center;
             position: relative;
         }
-        #landing {$1$2}
+        #landing {
+            position: relative;
+            background: #F5F5F5 url('landing.jpg') no-repeat center center;
+            background-size: cover;
+        }
         #about-us {
             background: #F5F5F5 url('about.jpg') no-repeat center center;
             background-size: cover;
@@ -47,7 +51,10 @@
             z-index: 1;
             pointer-events: none; /* Prevent overlay from blocking clicks */
         }
-        #landing img {$1$2}
+        #landing img {
+            position: relative;
+            z-index: 2;
+        }
         .arrow {
             position: absolute;
             bottom: 20px;
