@@ -163,13 +163,13 @@
             if (isScrolling) return;
             isScrolling = true;
 
-            if (event.deltaY > 50) { // Adjusted sensitivity threshold
+            if (event.deltaY > 30) { // Adjusted sensitivity threshold
                 // Scroll down
                 if (currentSectionIndex < sections.length - 1) {
                     currentSectionIndex++;
                     updateView();
                 }
-            } else if (event.deltaY < -50) { // Adjusted sensitivity threshold
+            } else if (event.deltaY < -30) { // Adjusted sensitivity threshold
                 // Scroll up
                 if (currentSectionIndex > 0) {
                     currentSectionIndex--;
@@ -179,7 +179,7 @@
 
             setTimeout(() => {
                 isScrolling = false;
-            }, 500); // Delay to reduce sensitivity
+            }, 300); // Delay to reduce sensitivity
         });
     </script>
 </body>
