@@ -77,12 +77,24 @@
         .menu-dot.active {
             background-color: #ffffff;
         }
+            .learn-more-button {
+            position: absolute;
+            bottom: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-align: center;
+            color: black;
+        }
     </style>
 </head>
 <body>
     <div id="landing" class="frame">
         <img src="logo.svg" alt="Logo">
-        <div class="arrow" onclick="scrollToSection('about-us')">&#x2193;</div>
+        <div class="learn-more-button" onclick="scrollToSection('about-us')">Learn More</div>
     </div>
     <div id="about-us" class="frame">
         <div class="content">
