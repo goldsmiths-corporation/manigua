@@ -15,6 +15,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: transform 0.8s ease-in-out; /* Smooth transition */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
         }
         #landing {
             background-color: #F5F5F5;
@@ -122,13 +127,10 @@
         }
 
         function updateView() {
-            sections.forEach((section, index) => {
+            const offset = -currentSectionIndex * 100;
+            sections.forEach((section) => {
                 const element = document.getElementById(section);
-                if (index === currentSectionIndex) {
-                    element.style.display = 'flex';
-                } else {
-                    element.style.display = 'none';
-                }
+                element.style.transform = `translateY(${offset}vh)`;
             });
             updateActiveDot(sections[currentSectionIndex]);
         }
@@ -158,7 +160,7 @@
             }
         });
 
-        // Add trackpad scroll detection to navigate frames with reduced sensitivity
+        // Add trackpad scroll detection to navigate frames with reduced sensitivity and smooth transition
         window.addEventListener('wheel', (event) => {
             if (isScrolling) return;
             isScrolling = true;
@@ -179,7 +181,7 @@
 
             setTimeout(() => {
                 isScrolling = false;
-            }, 300); // Delay to reduce sensitivity
+            }, 600); // Delay to allow the smooth transition to complete
         });
     </script>
 </body>
