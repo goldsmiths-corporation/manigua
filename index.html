@@ -114,6 +114,7 @@
     <script>
         let currentSectionIndex = 0;
         const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
+        let isScrolling = false;
 
         function showSection(sectionId) {
             currentSectionIndex = sections.indexOf(sectionId);
@@ -157,21 +158,28 @@
             }
         });
 
-        // Add trackpad scroll detection to navigate frames
+        // Add trackpad scroll detection to navigate frames with reduced sensitivity
         window.addEventListener('wheel', (event) => {
-            if (event.deltaY > 0) {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            if (event.deltaY > 50) { // Adjusted sensitivity threshold
                 // Scroll down
                 if (currentSectionIndex < sections.length - 1) {
                     currentSectionIndex++;
                     updateView();
                 }
-            } else if (event.deltaY < 0) {
+            } else if (event.deltaY < -50) { // Adjusted sensitivity threshold
                 // Scroll up
                 if (currentSectionIndex > 0) {
                     currentSectionIndex--;
                     updateView();
                 }
             }
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 500); // Delay to reduce sensitivity
         });
     </script>
 </body>
