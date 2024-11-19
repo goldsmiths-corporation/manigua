@@ -20,9 +20,11 @@
         }
         #about-us {
             background-color: #D3D3D3;
+            color: black;
         }
         #what-we-do {
             background-color: #F5F5F5;
+            color: black;
         }
         #how-we-do-it {
             background-color: #D3D3D3;
@@ -30,7 +32,7 @@
         }
         #contact {
             background-color: #F5F5F5;
-            color: white;
+            color: black;
         }
         img {
             max-width: 50vw;
@@ -135,21 +137,6 @@
                     dots[index].classList.add('active');
                 }
             });
-        }); else {
-                floatingMenu.style.visibility = 'visible';
-            }
-
-            sections.forEach((section, index) => {
-                const element = document.getElementById(section);
-                const rect = element.getBoundingClientRect();
-                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    dots[index].classList.add('active');
-                }
-            });
-        }); else {
-                floatingMenu.style.visibility = 'visible';
-            }
         });
     </script>
 </body>
