@@ -154,12 +154,10 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             scrollToSection('landing'); // Scroll to the landing page frame on page load
-            updateActiveDot();
+            setTimeout(updateActiveDot, 500); // Delay to ensure correct section highlighting
         });
 
-        window.addEventListener('scroll', () => {
-            updateActiveDot();
-        });
+        
 
         window.addEventListener('wheel', (event) => {
             handleScroll(event.deltaY);
