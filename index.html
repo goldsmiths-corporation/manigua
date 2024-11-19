@@ -20,6 +20,7 @@
             position: relative;
             background: #F5F5F5 url('landing.jpg') no-repeat center center;
             background-size: cover;
+            pointer-events: none; /* Prevent the overlay from blocking clicks */
         }
         #about-us {
             background: #F5F5F5 url('about.jpg') no-repeat center center;
@@ -49,10 +50,12 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.3);
             z-index: 1;
+            pointer-events: none; /* Prevent overlay from blocking clicks */
         }
         #landing img {
             position: relative;
             z-index: 2;
+            pointer-events: auto; /* Allow the logo to be clickable */
         }
         .arrow {
             position: absolute;
