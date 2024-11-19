@@ -61,9 +61,9 @@
         }
         .menu-dot {
             width: 7.5px;
-            height: 7.5px;
-            background-color: transparent;
-            border-radius: 50%;
+            height: 30px;
+            background-color: grey;
+            border-radius: 10px;
             cursor: pointer;
         }
         .menu-dot.active {
@@ -112,7 +112,8 @@
 
     <script>
         function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            // Simulating a page change by scrolling to the section without smooth behavior
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'auto' });
             updateActiveDot(sectionId);
         }
 
