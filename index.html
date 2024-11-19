@@ -27,47 +27,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Made it less dark */
-            z-index: 1;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
         }
         #landing img, #landing .arrow {
-            display: block;
-            position: relative;
-            z-index: 2;
-        }
-        #about-us {
-            background: #F5F5F5 url('about.jpg') no-repeat center center;
-            background-size: cover;
-            color: black;
-        }
-        #what-we-do {
-            background: #F5F5F5 url('what.jpg') no-repeat center center;
-            background-size: cover;
-            color: black;
-        }
-        #how-we-do-it {
-            background: #F5F5F5 url('how.jpg') no-repeat center center;
-            background-size: cover;
-            color: black;
-        }
-        #contact {
-            background: #F5F5F5 url('contact.jpg') no-repeat center center;
-            background-size: cover;
-            color: black;
-        }
-        img {
-            max-width: 50vw;
-            height: auto;
-        }
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .arrow {
             position: absolute;
             bottom: 20px;
             left: 50%;
@@ -75,6 +38,7 @@
             cursor: pointer;
             font-size: 2rem;
             color: white;
+            z-index: 2;
         }
         /* Floating menu styles */
         .floating-menu {
@@ -160,6 +124,7 @@
             const dots = document.querySelectorAll('.menu-dot');
             
             floatingMenu.style.visibility = 'visible';
+    floatingMenu.style.pointerEvents = 'auto';
 
             sections.forEach((section, index) => {
                 const element = document.getElementById(section);
