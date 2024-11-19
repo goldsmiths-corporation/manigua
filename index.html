@@ -8,18 +8,12 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Disable scrolling */
         }
         .frame {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.8s ease-in-out; /* Smooth transition */
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
         }
         #landing {
             background-color: #F5F5F5;
@@ -109,46 +103,17 @@
     
     <!-- Floating Menu -->
     <div class="floating-menu" id="floatingMenu">
-        <div class="menu-dot" onclick="showSection('landing')"></div>
-        <div class="menu-dot" onclick="showSection('about-us')"></div>
-        <div class="menu-dot" onclick="showSection('what-we-do')"></div>
-        <div class="menu-dot" onclick="showSection('how-we-do-it')"></div>
-        <div class="menu-dot" onclick="showSection('contact')"></div>
+        <div class="menu-dot" onclick="scrollToSection('landing')"></div>
+        <div class="menu-dot" onclick="scrollToSection('about-us')"></div>
+        <div class="menu-dot" onclick="scrollToSection('what-we-do')"></div>
+        <div class="menu-dot" onclick="scrollToSection('how-we-do-it')"></div>
+        <div class="menu-dot" onclick="scrollToSection('contact')"></div>
     </div>
 
     <script>
-        let currentSectionIndex = 0;
-        const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
-        let isScrolling = false;
-
-        function showSection(sectionId) {
-            currentSectionIndex = sections.indexOf(sectionId);
-            updateView();
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
-
-        function updateView() {
-            const offset = -currentSectionIndex * 100;
-            sections.forEach((section) => {
-                const element = document.getElementById(section);
-                element.style.transform = `translateY(${offset}vh)`;
-            });
-            updateActiveDot(sections[currentSectionIndex]);
-        }
-
-        function updateActiveDot(sectionId) {
-            const dots = document.querySelectorAll('.menu-dot');
-            sections.forEach((section, index) => {
-                if (section === sectionId) {
-                    dots[index].classList.add('active');
-                } else {
-                    dots[index].classList.remove('active');
-                }
-            });
-        }
-
-        window.addEventListener('load', () => {
-            updateView();
-        });
 
         window.addEventListener('scroll', () => {
             const floatingMenu = document.getElementById('floatingMenu');
@@ -158,30 +123,6 @@
             } else {
                 floatingMenu.style.visibility = 'visible';
             }
-        });
-
-        // Add trackpad scroll detection to navigate frames with reduced sensitivity and smooth transition
-        window.addEventListener('wheel', (event) => {
-            if (isScrolling) return;
-            isScrolling = true;
-
-            if (event.deltaY > 30) { // Adjusted sensitivity threshold
-                // Scroll down
-                if (currentSectionIndex < sections.length - 1) {
-                    currentSectionIndex++;
-                    updateView();
-                }
-            } else if (event.deltaY < -30) { // Adjusted sensitivity threshold
-                // Scroll up
-                if (currentSectionIndex > 0) {
-                    currentSectionIndex--;
-                    updateView();
-                }
-            }
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 600); // Delay to allow the smooth transition to complete
         });
     </script>
 </body>
