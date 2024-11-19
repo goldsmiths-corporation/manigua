@@ -62,7 +62,7 @@
         .menu-dot {
             width: 7.5px;
             height: 30px;
-            background-color: grey;
+            background-color: rgba(128, 128, 128, 0.5);
             border-radius: 10px;
             cursor: pointer;
         }
@@ -113,7 +113,7 @@
     <script>
         function scrollToSection(sectionId) {
             // Simulating a page change by scrolling to the section without smooth behavior
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'auto' });
+            location.href = `#${sectionId}`;
             updateActiveDot(sectionId);
         }
 
