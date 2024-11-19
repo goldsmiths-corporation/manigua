@@ -16,7 +16,9 @@
             align-items: center;
         }
         #landing {
-            background: #F5F5F5 url('landing.jpg') no-repeat center center;
+            background: #F5F5F5 url('') no-repeat center center;
+            background-size: cover;
+            opacity: 0.75;
             background-size: cover;
         }
         #about-us {
@@ -103,7 +105,7 @@
 <body>
     <div id="landing" class="frame">
         <img src="logo.svg" alt="Logo" style="filter: invert(100%);">
-        <div class="learn-more-button" onclick="scrollToSection('about-us')">Learn More</div>
+        <div class="learn-more-button" onclick="scrollToSection('')" style="color: grey;">Learn More</div>
     </div>
     <div id="about-us" class="frame">
         <div class="learn-more-button" onclick="scrollToSection('what-we-do')">Learn More</div>
@@ -127,7 +129,7 @@
         </div>
     </div>
     <div id="contact" class="frame">
-        <div class="learn-more-button" onclick="scrollToSection('landing')">Back to Top</div>
+        <div class="learn-more-button" onclick="scrollToSection('landing')" style="color: grey;">Back to Top</div>
         <div class="content">
             <h1>Contact Us</h1>
             <p>Get in touch with us for more information or to start a project together!</p>
