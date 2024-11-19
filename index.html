@@ -156,31 +156,7 @@
             scrollToSection('landing'); // Scroll to the landing page frame on page load
             setTimeout(updateActiveDot, 500); // Delay to ensure correct section highlighting
         });
-
-        
-
-        window.addEventListener('wheel', (event) => {
-            event.preventDefault();
-            handleScroll(event.deltaY);
-        });
-
-        let isScrolling = false;
-        function handleScroll(deltaY) {
-            if (isScrolling) return;
-            isScrolling = true;
-            const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
-            const currentSectionIndex = getCurrentSectionIndex();
-
-            if (deltaY > 0 && currentSectionIndex < sections.length - 1) {
-                scrollToSection(sections[currentSectionIndex + 1]);
-            } else if (deltaY < 0 && currentSectionIndex > 0) {
-                scrollToSection(sections[currentSectionIndex - 1]);
-            }
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 1000); // Prevent rapid scrolling
-        }
+       
 
         function updateActiveDot() {
             const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
