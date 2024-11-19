@@ -152,11 +152,21 @@
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
+        
+        });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateActiveDot();
+        });
+
         window.addEventListener('scroll', () => {
-            const floatingMenu = document.getElementById('floatingMenu');
+            updateActiveDot();
+        });
+
+        function updateActiveDot() {
             const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
             const dots = document.querySelectorAll('.menu-dot');
-            
             sections.forEach((section, index) => {
                 const element = document.getElementById(section);
                 const rect = element.getBoundingClientRect();
@@ -165,7 +175,7 @@
                     dots[index].classList.add('active');
                 }
             });
-        });
-    </script>
+        }
+        }</script>);
 </body>
 </html>
