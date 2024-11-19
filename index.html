@@ -156,6 +156,23 @@
                 floatingMenu.style.visibility = 'visible';
             }
         });
+
+        // Add trackpad scroll detection to navigate frames
+        window.addEventListener('wheel', (event) => {
+            if (event.deltaY > 0) {
+                // Scroll down
+                if (currentSectionIndex < sections.length - 1) {
+                    currentSectionIndex++;
+                    updateView();
+                }
+            } else if (event.deltaY < 0) {
+                // Scroll up
+                if (currentSectionIndex > 0) {
+                    currentSectionIndex--;
+                    updateView();
+                }
+            }
+        });
     </script>
 </body>
 </html>
