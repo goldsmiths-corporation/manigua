@@ -19,17 +19,17 @@
             background-color: #F5F5F5;
         }
         #about-us {
-            background-color: #D3E4CD;
+            background-color: #FFFFFF;
         }
         #what-we-do {
-            background-color: #ADC2A9;
+            background-color: #F5F5F5;
         }
         #how-we-do-it {
-            background-color: #6B8E23;
+            background-color: #FFFFFF;
             color: white;
         }
         #contact {
-            background-color: #354F52;
+            background-color: #F5F5F5;
             color: white;
         }
         img {
@@ -118,9 +118,24 @@
         window.addEventListener('scroll', () => {
             const floatingMenu = document.getElementById('floatingMenu');
             const landingRect = document.getElementById('landing').getBoundingClientRect();
+            const sections = ['landing', 'about-us', 'what-we-do', 'how-we-do-it', 'contact'];
+            const dots = document.querySelectorAll('.menu-dot');
+            
             if (landingRect.top >= 0 && landingRect.bottom <= window.innerHeight) {
                 floatingMenu.style.visibility = 'hidden';
             } else {
+                floatingMenu.style.visibility = 'visible';
+            }
+
+            sections.forEach((section, index) => {
+                const element = document.getElementById(section);
+                const rect = element.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+            });
+        }); else {
                 floatingMenu.style.visibility = 'visible';
             }
         });
