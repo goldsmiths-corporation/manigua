@@ -160,6 +160,7 @@
         
 
         window.addEventListener('wheel', (event) => {
+            event.preventDefault();
             handleScroll(event.deltaY);
         });
 
